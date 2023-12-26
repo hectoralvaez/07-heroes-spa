@@ -1,7 +1,14 @@
-URLS DEL PROYECTO:  
+### URLS DEL PROYECTO:  
+
+#### Heroes SPA:  
+GitHub: https://github.com/hectoralvaez/07-heroes-spa  
+
+#### Custom Hooks:  
+GitHub: https://github.com/hectoralvaez/custom-hooks  
+
+#### Festival del gif:  
 Netlify: https://festivaldegifs.netlify.app  
 GitHub: https://github.com/hectoralvaez/festival-de-gifs  
-GitHub: https://github.com/hectoralvaez/custom-hooks
 GitHub Pages: https://hectoralvaez.github.io/festival-de-gifs/  
 
 React, Vite, GitHub, Jest, React Testing Library, Netlify, GitHub Pages, Postman
