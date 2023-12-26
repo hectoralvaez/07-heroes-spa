@@ -215,6 +215,31 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 ```
 
 
+# 🚀 189. Inicio de proyecto - HeroesApp
+
+En este capítulo:
+
+1. Arrancamos el proyecto con YARN + VITE (quedará pendiente prepara la parte de Jest + React Testing Library)
+2. (fuera del video) Inicializo repositorio en GITHUB
+3. Limpieza y orden general
+4. Se prepara estructura de carpetas para trabajar en dos módulos independientes representados en dos carpetas dentro de la carpeta `src`:
+    - auth
+    - heroes
+
+El módulo de `auth` será independiente del de `heroes`.
+
+
+
+# 🆕 INICIO SECCIÓN 14: HeroesApp - Single Page Application (SPA)
+
+<br />
+
+---
+
+# 🏁 FIN SECCIÓN 13: Bonus: Repositorio de Custom Hooks
+
+
+
 
 # 🧰 🪝 183. Repositorio con customHooks
 https://github.com/hectoralvaez/custom-hooks
