@@ -215,6 +215,47 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 ```
 
 
+---
+
+# 🚀 191. Creando un primer Router
+En este capítulo hacemos:
+- Instalación de React Router 6 vía Yarn `yarn add react-router-dom@6`
+- Importar `BrowserRouter` en `Main.jsx` 
+```javascript
+import { BrowserRouter } from 'react-router-dom'
+
+...
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <HeroesApp />
+    </BrowserRouter>
+  </React.StrictMode>,
+)
+```
+
+- Crear directorio "router" donde pondremos todos los componentes con las rutas vinculadas.  
+En nuestro caso de momento solo crearemos `AppRouter.jsx`, que es el nombre que se le suele dar al router principal de la aplicación. Aquí irán todas las rutas, pero podríamos tener otro component para la administración de otros tipos de rutas.
+```javascript
+<Routes>
+    <Route path="marvel" element={ <MarvelPage /> } />
+    <Route path="dc" element={ <DcPage /> } />
+    
+    <Route path="login" element={ <LoginPage /> } />
+
+    <Route path="/*" element={ <Navigate to="marvel" /> } />
+</Routes>
+```
+
+
+- Creamos las páginas dentro de la carpeta `heroes/pages` y en `auth/pages`
+
+
+
+
+---
+
 # 🚀 189. Inicio de proyecto - HeroesApp
 
 En este capítulo:
