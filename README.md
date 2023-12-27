@@ -217,6 +217,31 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 192. Colocar clase de la ruta activa
+
+
+Ejemplo que pone Fernando:
+```javascript
+<NavLink
+    className={ ({ isActive }) => `nav-item nav-link ${ isActive ? 'active' : '' }`}
+    to="marvel">
+    Marvel
+</NavLink>
+```
+
+Realmente no hace falta el condicional ternario, por defecto ya te añade la class `active` si está en la ruta marcada.
+```javascript
+<NavLink
+    className="nav-item nav-link" 
+    to="marvel">
+    Marvel
+</NavLink>
+```
+
+
+
+---
+
 # 🚀 191. Creando un primer Router
 En este capítulo hacemos:
 - Instalación de React Router 6 vía Yarn `yarn add react-router-dom@6`
