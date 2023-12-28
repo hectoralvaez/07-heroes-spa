@@ -219,6 +219,7 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 # 🚀 192. Colocar clase de la ruta activa
 
+### 1. Colocar clase de la ruta activa
 
 Ejemplo que pone Fernando:
 ```javascript
@@ -238,7 +239,8 @@ Realmente no hace falta el condicional ternario, por defecto ya te añade la cla
 </NavLink>
 ```
 
-
+### 2. Crear archivo barril por módulo
+Tal y como hemos hecho con el módulo de "ui" preparamos los módulos de "heroes" y el de "auth"
 
 ---
 
