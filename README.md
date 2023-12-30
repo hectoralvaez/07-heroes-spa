@@ -217,6 +217,37 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 193. Creando un segundo Router
+
+Creamos un segundo router para tener diferentes menús para diferentes contenidos, por ejemplo apartado de login tiene que ser diferente de la del resto de la web.
+
+Como pasamos a tener dos rutas, una para `herores` y otra para `auth` crearemos una carpeta "routes" dentro de cada carpeta.
+
+Quitamos la llamada al `<Navbar />` general para que solo aparezca en el `HeroesRoutes.jsx`, de manera que ahora en el router por defecto `AppRouter.jsx` solo vamos a distinguir entre login/heroes (resto de páginas):
+
+```javascript
+<Routes>
+    <Route path="login" element={ <LoginPage /> } />
+
+    <Route path="/*" element={ <HeroesRoutes /> } />
+</Routes>
+```
+
+Una vez compruebe que el path no es "login", pasará a buscar el elemento `<HeroesRoutes />` y aquí sí hará la distinción entre rutas de heroes:
+
+```javascript
+<Routes>
+    <Route path="marvel" element={ <MarvelPage /> } />
+    <Route path="dc" element={ <DcPage /> } />
+
+    <Route path="/*" element={ <Navigate to="marvel" /> } />
+</Routes>
+```
+
+
+
+---
+
 # 🚀 192. Colocar clase de la ruta activa
 
 ### 1. Colocar clase de la ruta activa
