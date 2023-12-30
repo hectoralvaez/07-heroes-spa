@@ -70,6 +70,10 @@ En terminal: `yarn add --dev @testing-library/react @types/jest jest-environment
 - [React Hook Form](https://react-hook-form.com/): Librería que te ayuda a validar formularios en React. Es una librería mínima sin otras dependencias, a la vez que es eficiente y fácil de usar, lo que requiere que los desarrolladores escriban menos líneas de código que otras librerías de formularios.
 - ['React Router'](https://reactrouter.com): Biblioteca de enrutamiento con la que puedes definir diferentes rutas dentro de tu aplicación y asignar componentes específicos a cada ruta. Cuando el usuario navega a una ruta determinada, React Router se encarga de renderizar el componente correspondiente en el lugar adecuado de la interfaz de usuario. Es esencial para construir aplicaciones de una sola página (SPA) con múltiples rutas y vistas en React, ya que facilita el enrutamiento y la navegación entre componentes de manera eficiente y estructurada.
 
+- ['React Router (useNavigate)'](https://reactrouter.com/en/main/hooks/use-navigate): Este hook nos devuelve la función 'navigate', que nos permite hacer redirecciones programáticas. Con esta función, podemos hacer lo mismo que con el componente navigate. Es decir, redirigir una URL al resultado de otra ruta.
+
+  La diferencia entre el hook useNavigate y el componente navigate en React Router es que, con el uso del hook, podemos utilizar una función. Esto implica que podemos utilizarlo en cualquier parte del código. El problema de utilizar componentes en vez de funciones es que debemos renderizarlos. Ya que una función no necesita este proceso de render, podemos insertarla donde queramos.
+
 
 - PETICIONES HTTP 
     - [Fetch](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch) Viene en JavaScript
@@ -214,6 +218,16 @@ Cuando estamos trabajando un código, pero todavía no se ha terminado, para evi
 throw new Error ('action.type "ABC" todavía no se ha definido');
 ```
 
+
+---
+
+# 🚀 194. Navigate push / replace - useNavigate
+
+En esta clase se inicia el control de la navegación y el historial, pera evitar que una vez des-logueado, no puedas volver a acceder a contenido exclusivo para usuarios logados.
+
+`useNavigate` es un custom hook creado por el equipo de "React Router DOM"
+
+Con `replace: true` evitamos que la persona vuelva al historial anterior, ya que lo está reemplazando el historial. Si ya estás deslogeado, ya no puedes volver al contenido de la página en la que necesitas estar logado para ver.
 
 ---
 
