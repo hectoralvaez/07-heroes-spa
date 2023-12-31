@@ -221,6 +221,22 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 196. Tarjetas con la información del Héroe
+
+Añadimos el componente `<HeroCard />` al `HeroList.jsx` haciendo el spread para traer todas las propiedades del heroe "esparcidas" y no tener que definirlas una a una.
+
+IMPORANTE: Sí marcamos directamente el `key` con el `heroe.id`
+
+```javascript
+<HeroCard 
+    key={ heroe.id }
+    { ...heroe }
+/>
+```
+
+
+---
+
 # 🚀 195. Lista de Heroes
 
 Aquí vamos a empezar a aplicar componentes para elementos que se repiten.
