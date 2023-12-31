@@ -221,6 +221,59 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 197. Tarjeta del Héroe - parte 2
+
+Diferentes maneras de evitar ver la información duplicada de `alter_ego` y `characters` (en caso de ser la misma información) NO mostraremos el contenido de `characters`:
+
+En principio, solo para esto, no sería necesario un componente independiente, pero hay 3 maneras distintas de gestionar este problema
+
+### 1. Con el condicional directamente tirado en el component, no es muy limpio y algo complicado de leer:
+```javascript
+{
+    ( alter_ego !== characters ) && (<p>{ characters }</p>)
+}
+```
+
+### 2. Con el condicional directamente tirado en el component, no es muy limpio y algo complicado de leer. Aquí la diferencia es que definimos previamente la constante `charactersByHero` antes del `return` del component:
+
+```javascript
+const charactersByHero = (<p>{ characters }</p>);
+
+....
+
+{
+    ( alter_ego !== characters ) && charactersByHero
+}
+```
+
+### 3. Creando un component interno que no habrá que exportar y solo funcionará dentro del componente `HeroCard.jsx`:
+
+```javascript
+const CharactersByHero = ({ alter_ego, characters }) => {
+
+    if ( alter_ego === characters ) return (<></>);
+    return <p>{ characters }</p>
+}
+....
+<CharactersByHero characters = { characters } alter_ego = { alter_ego } />
+```
+
+### 4. Creando un component interno que no habrá que exportar y solo funcionará dentro del componente `HeroCard.jsx`. Pero con un condicional ternario:
+
+```javascript
+const CharactersByHero = ({ alter_ego, characters }) => {
+
+    return ( alter_ego === characters )
+     ? <></>
+     : <p>{ characters }</p>;
+}
+....
+<CharactersByHero characters = { characters } alter_ego = { alter_ego } />
+```
+
+
+---
+
 # 🚀 196. Tarjetas con la información del Héroe
 
 Añadimos el componente `<HeroCard />` al `HeroList.jsx` haciendo el spread para traer todas las propiedades del heroe "esparcidas" y no tener que definirlas una a una.
