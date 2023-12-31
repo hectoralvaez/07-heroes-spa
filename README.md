@@ -227,8 +227,22 @@ Aquí vamos a empezar a aplicar componentes para elementos que se repiten.
 
 En este ejemplo, haremos el listado de los heroes por "Publisher", que será la misma estructura tanto en la página `DcPage.jsx` como en la de `MarvelPage.jsx`
 
+Hemos usado el `map` en el component `HeroList.jsx` para recorrer la información de los heroes:
 
+```javascript
+<ul>
+    {
+        heroes.map( (heroe) => ( 
+            <li key={heroe.id}>{ heroe.superhero }</li>
+        ) ) 
+    }
+</ul>
+```
 
+Hemos usado el component `HeroList` en las páginas `DcPage.jsx` y `MarvelPage.jsx`
+```javascript
+<HeroList publisher={ 'DC Comics' } />
+```
 
 ---
 
