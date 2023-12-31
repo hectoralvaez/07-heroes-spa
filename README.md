@@ -221,6 +221,17 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 195. Lista de Heroes
+
+Aquí vamos a empezar a aplicar componentes para elementos que se repiten.
+
+En este ejemplo, haremos el listado de los heroes por "Publisher", que será la misma estructura tanto en la página `DcPage.jsx` como en la de `MarvelPage.jsx`
+
+
+
+
+---
+
 # 🚀 194. Navigate push / replace - useNavigate
 
 En esta clase se inicia el control de la navegación y el historial, pera evitar que una vez des-logueado, no puedas volver a acceder a contenido exclusivo para usuarios logados.
