@@ -1,3 +1,4 @@
+import { HeroList } from "../components/HeroList"
 
 export const DcPage = () => {
   return (
@@ -5,10 +6,8 @@ export const DcPage = () => {
       <h1>DC Comics</h1>
       <hr />
 
-      <ul>
-        <li>Batman</li>
-        <li>Superman</li>
-      </ul>
+      <HeroList publisher={ 'DC Comics' } />
+      
     </>
   )
 }
