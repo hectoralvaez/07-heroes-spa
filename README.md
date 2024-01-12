@@ -221,6 +221,38 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 199. Estilo del componente HeroScreen
+
+En esta sección mostramos toda la información del superheroe en su página `HeroPage.jsx`.
+
+Además añadimos un botón para volver atrás con la ayuda del `useNavigate` de `react-router-dom`:
+
+```javascript
+// Definimos la función antes del return
+  const navigate = useNavigate();
+
+  const onNavigateBack = () => {
+    navigate(-1);
+  }
+
+```
+...
+
+```javascript
+// Usamos la función en el botón dentro del return
+<button
+    className="btn btn-outline-primary"
+    onClick={onNavigateBack}>
+    Back
+</button>
+
+```
+
+
+
+
+---
+
 # 🚀 198. Leer argumentos por URL
 
 En esta sección, pasamos variables por url para cargar el contenido concreto de cada superheroe
