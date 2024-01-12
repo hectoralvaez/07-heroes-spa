@@ -221,6 +221,14 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# ⭐ 🚀 200. Nota: useMemo
+
+Para optimizar nuestra aplicación, usaremos el hook `useMemo` que nos permite memorizar el valor de una constante y solo volverá a calcular ese valor memorizado cuando una de las dependencias haya cambiado. Esta optimización ayuda a evitar cálculos costosos en cada render.
+
+Actualmente, en esta aplicación no sería necesario, pero es una buena práctica.
+
+---
+
 # 🚀 199. Estilo del componente HeroScreen
 
 En esta sección mostramos toda la información del superheroe en su página `HeroPage.jsx`.
