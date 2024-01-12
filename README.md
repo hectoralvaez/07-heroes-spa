@@ -221,6 +221,50 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 198. Leer argumentos por URL
+
+En esta sección, pasamos variables por url para cargar el contenido concreto de cada superheroe
+
+En `HeroesRoutes.jsx` añadimos la ruta del heroe con el argumento que encontrará en la url del navegador,
+```javascript
+<Route path="hero/:id" element={ <HeroPage /> } />
+```
+
+El nombre que le demos a esta variable (en este  caso "id", pero podría ser heroId), lo recibirá automáticamente el `HeroPage.jsx` gracias al `useParams` de `react-router-dom`.
+
+Creamos el helper `getHeroeById` que nos ayuda a filtar el superheroe dentro de la data (en este caso el objeto ubicado en `data/heroes.js`)
+
+Esta función lo único que hace es recibir el id y filtar dentro de la data para devolver el contenido del superheroe indicado.
+
+```javascript
+export const getHeroeById = ( id ) => {
+    return heroes.find( heroe => heroe.id === id );
+}
+```
+
+Ahora en el `HeroPage.jsx` ya tenemos el id que recibimos por parámatro en la url:
+```javascript
+const {id} = useParams();
+```
+
+Y podemos llamar a la función `getHeroeById` pasándole el id obtenido mediante la url con `useParams()`
+```javascript
+const heroe = getHeroeById(id);
+```
+
+Para evitar errores, en caso que se envie por url un valor que no exista, es decir, no coincida con ningún superheroe de nuestra lista, hacemos la siguiente comporbación en el `HeroPage.jsx`:
+
+```javascript
+  if ( !heroe ) {
+    return <Navigate to="/marvel" />
+  }
+    // En este return, podríamos devolver un mensaje de error 404 o cargar otro componente, pero con el uso de `Navigate`, cargamos directamente el componente deseado via router
+```
+
+
+
+---
+
 # 🚀 197. Tarjeta del Héroe - parte 2
 
 Diferentes maneras de evitar ver la información duplicada de `alter_ego` y `characters` (en caso de ser la misma información) NO mostraremos el contenido de `characters`:
