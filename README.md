@@ -221,6 +221,14 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 201. Animaciones en nuestro componente
+
+Añadimos la libreria [Animate.css](https://animate.style/)  que permite implementar varias animaciones de manera fácil.
+
+
+
+---
+
 # ⭐ 🚀 200. Nota: useMemo
 
 Para optimizar nuestra aplicación, usaremos el hook `useMemo` que nos permite memorizar el valor de una constante y solo volverá a calcular ese valor memorizado cuando una de las dependencias haya cambiado. Esta optimización ayuda a evitar cálculos costosos en cada render.
