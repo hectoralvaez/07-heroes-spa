@@ -221,6 +221,23 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 203. SearchComponent
+
+
+---
+
+# 🚀 203. SearchComponent
+
+
+---
+
+# 🚀 202. Diseño de la pantalla de búsqueda
+
+Preparamos el formulario de búsqueda.
+
+
+---
+
 # 🚀 201. Animaciones en nuestro componente
 
 Añadimos la libreria [Animate.css](https://animate.style/)  que permite implementar varias animaciones de manera fácil.
