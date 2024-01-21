@@ -221,13 +221,82 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
-# 🚀 203. SearchComponent
+# ⭐ 🚀 203. SearchComponent
+
+### Custom hook utilizados:
+- useForm (Creado por nosotros)
+- useLocation (React Router DOM)
+- useNavigate (React Router DOM)
+
+Se va a preparar la app para hacer busquedas con query parameter pasado por url, no hará un full refresh, se mantendrá en la misma url, pero cargando el valor pasado por el formulario a la url.
+
+Usaremos nuestro hook `useForm`, lo podemos descargar de nuestro repositorio [Custom Hooks](https://github.com/hectoralvaez/custom-hooks).
+
+`searchText` tiene que ser el valor del "name" del input que estamos utilizando para, en nuestro caso, buscar, ya que el "name" es lo que vamos a usar para establecer el valor de ese campo.
 
 
----
+Preparamos para navegar a "otra pantalla", aunque no nos movemos de la misma, ya que vamos a apuntar a la que estamos (en nuestro ejemplo "search"). El hecho de cambiar la url con la variable va a hacer que se trate como una "navegación"
 
-# 🚀 203. SearchComponent
+```javascript
+const navigate = useNavigate();
+```
 
+Analizamos la función `onSearchSubmit`:
+```javascript
+const onSearchSubmit = ( event ) => {    
+    //Para evitar que se haga un "submit" del form. De esta manera nos mantenemos en la misma url.
+    event.preventDefault();
+
+    //No hará una búsqueda si la cadena que intriducimos en el input no es mayor de 2 caracteres.
+    if (searchText.trim().length <=1 ) return; 
+
+    navigate(`?q=${ searchText }`);
+}
+```
+
+
+Con el hook `useLocation`, si hacemos un console log, podemos ver que obtenemos toda esta información:
+
+```javascript
+hash: ""
+key: "default"
+pathname: "/search"
+search: "?q=batman&order=asc"
+state: null
+```
+
+Pero las variables que se pasan por url, no están separadas. Nosotros podríamos "parsear" esa variable y sacar el valor de cada una de las variables, pero para evitar esto, usaremos "query-string".
+
+Lo instalamos mediante `yarn add query-string` y ya está listo para ser usado:
+
+Lo importamos:
+```javascript
+import queryString from "query-string";
+```
+
+Con el uso de `query-string`:
+```javascript
+const query = queryString.parse( location.search );
+```
+
+Si hacemos un console log obtenemos:
+```javascript
+order: "asc"
+q: "superman"
+```
+
+Como del query que estamos realizando ahora, actualmente sólo nos interesa la "q", desestructuramos el query para que solo nos devuelva la "q" y lo inicializamos vacío, para que siempre esté declarado:
+
+```javascript
+const { q = '' } = queryString.parse( location.search );
+```
+
+De esta manera ya podemos usar la variable de búsqueda pasada por url ("q") en nuestro código:
+```javascript
+<div className="alert alert-danger">
+No hero with <b>{ q }</b>
+</div>
+```
 
 ---
 
