@@ -221,6 +221,61 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 204. Mostrar listado de héroes
+
+Añadimos un nuevo helper llamado `getHeroesByName.js`:
+
+Analizamos el helper `getHeroesByName`:
+
+```javascript
+// Importamos la data de los "heroes"
+import { heroes } from "../data/heroes"
+
+// Seteamos el valor de "name" como vacío ('')
+export const getHeroesByName = ( name = '' ) => {
+
+    // Pasamos a minúsculas y sin espacios delante o detrás el "name"
+    name = name.toLocaleLowerCase().trim();
+    
+    // Si el name no tiene valor, devolvemos un arreglo vacío
+    if (name.length === 0) return [];
+    
+    // En caso de tener un valor "name", aplicamos el 'filter' a la data de heroes, teniendo en cuenta que hay que pasarlo a minúsculas el nombre del super heroe que tenemos guardado en la data, ya que usa mayúsculas
+    return heroes.filter(
+        heroe => heroe.superhero.toLocaleLowerCase().includes( name )
+    );
+}
+```
+
+
+En la página `SearchPage.jsx` importamos el nuevo helper:
+```javascript
+import { getHeroesByName } from "../helpers";
+```
+
+Creamos una constante con todos los heroes partiendo del valor introducido en el input (pasado a la url en la variable "q")
+```javascript
+const heroes = getHeroesByName( q );
+```
+
+En el return pintamos todos los heroes que recibimos
+```javascript
+{
+    heroes.map( hero => (
+        <HeroCard key={ hero.id } { ...hero } />
+    ))
+}
+```
+
+#### EXTRA:
+Para mantener el valor del input en caso de navegar, asignamos el valor de `searchText` en lugar de vacío ('') a el valor del query (q). De esta manera, el input siempre tendrá el valor introducido en la url.
+
+```javascript
+searchText: q
+```
+
+---
+
 # ⭐ 🚀 203. SearchComponent
 
 ### Custom hook utilizados:
