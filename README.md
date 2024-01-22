@@ -221,6 +221,28 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🚀 205. Mostrar mensajes condicionales
+
+En esta clase se muestran varias maneras de ocultar los mensajes.
+
+Creo que la solución que se aplica no es buena, estaría bien que NO se tuviera que hacer un `display: none` y que directamente el mensaje no apareciera.
+
+Para aplicar esta solución, creamos dos variables que nos devolverán un boleano y nos ayudarán a saber en qué punto estamos:
+
+```javascript
+const showSearch = ( q.length === 0 );
+const showError = ( q.length > 0 ) && heroes.length === 0;
+```
+
+Además se ha eliminado la linea que salía de la función `onSearchSubmit` si el input no tenía más de un caracter:
+```javascript
+if (searchText.trim().length <=1 ) return;
+```
+
+De esta manera, si aplicamos la busqueda sin valor en el input, nos vuelve a mostrar el mensaje "Search a Hero".
+
+---
+
 # 🚀 204. Mostrar listado de héroes
 
 Añadimos un nuevo helper llamado `getHeroesByName.js`:
