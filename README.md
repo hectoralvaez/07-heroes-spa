@@ -221,6 +221,29 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔒 208. Temas puntuales de la sección
+
+## ¿Qué veremos en esta sección?
+
+- Rutas públicas
+- Rutas privadas
+- Login y logout - Sin backend aún
+- Recordar cuál fue la última ruta visitada para mejorar la experiencia de usuario.
+- Context
+- Reducer
+
+Esta es una sección pequeña pero importante para trabajar las bases de la autenticación y protección de nuestra aplicación.
+
+# 🆕 INICIO SECCIÓN 15: Protección de rutas
+
+<br />
+
+---
+
+# 🏁 FIN SECCIÓN 14: HeroesApp - Single Page Application (SPA)
+
+---
+
 # 🚀 205. Mostrar mensajes condicionales
 
 En esta clase se muestran varias maneras de ocultar los mensajes.
