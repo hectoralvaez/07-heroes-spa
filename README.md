@@ -221,6 +221,18 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔒 210. Continuación de proyecto - Protección de Rutas
+
+En esta clase se explica la diferencia entre ruta privadas y rutas públicas, más adelante se aplicará una autenticación real contra un backend.
+
+Nuestra apicación tiene que saber en todo momento que estás logeado para permitirte acceder a las diferentes páginas y por ejemplo, mostrar el nombre de usuario.
+
+Vamos a necesitar un "context" en el que tendremos nuestro proveedor de atenticación.
+
+Hay varias maneras de gestionar la protección de rutas, en este caso, decidimos crear dentro de la carpeta "auth" las carpetas "context" y "types".
+
+---
+
 # 🔒 208. Temas puntuales de la sección
 
 ## ¿Qué veremos en esta sección?
