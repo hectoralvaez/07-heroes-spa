@@ -221,6 +221,43 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔒 212. Login de un usuario
+
+En esta clase podremos recuperar la información almacenada en el usuario en el momento de hacer "login"
+
+Necesitaremos el `useContext` de react y nuestro `AuthContext` par poder acceder a esta información.
+
+Además, en `AuthProvider.jsx` creamos la función `login`:
+
+```javascript
+const login = ( name = '' ) => {
+    const action = {
+        type: types.login,
+        payload: {
+            id: 'ABC',
+            name: name
+        }
+    }
+    dispatch(action);
+}
+```
+
+Que luego usaremos en nuestro `AuthContext.Provider` 
+```javascript
+<AuthContext.Provider value={{
+    ...authState,
+    login: login
+    }}>
+    { children }
+</AuthContext.Provider>
+```
+
+Una vez hecho esto, ya podremos llamar al nombre del usuario en `Navbar.jsx`.
+
+Pero antes, habrá que volver a poner en "contexto" la información mdiante el `useContext` de react y nuestro `AuthContext`.
+
+---
+
 # 🔒 211. Context y Reducer de mi aplicación
 
 En el archivo types.js, definimos los dos tipos de de acciones que se pueden disparar:
