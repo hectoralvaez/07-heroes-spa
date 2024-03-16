@@ -221,6 +221,37 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔒 211. Context y Reducer de mi aplicación
+
+En el archivo types.js, definimos los dos tipos de de acciones que se pueden disparar:
+
+```javascript
+export const types = {
+    login:  '[Auth] Login',
+    logout: '[Auth] Logout',
+}
+```
+
+NOTA: Cuando se trabaja con Redux, esiste una función "Action Creators" que nos evitaría tener que crear el archivo types.js
+
+En AuthProvider usaremos el AuthContext para proveer la información de login a toda la aplicación.
+
+Creamos un 'reducer' que va a controlar los estados. Se podría hacer con un `useState`, pero cuando se necesita mucho control sobre el estado, es preferible un 'reducer'
+
+CLASE MUY DENSA, ACABAMOS CREANDO:
+- Reducer
+- Provider
+- Context
+
+Con esto podemos acceder a la información del usuario llamando al contenido de la app dentro del "AuthProvider" para saber en todo momento si el usuario está logado o no.
+
+```javascript
+    <AuthProvider>
+        <AppRouter />
+    </AuthProvider>
+```
+---
+
 # 🔒 210. Continuación de proyecto - Protección de Rutas
 
 En esta clase se explica la diferencia entre ruta privadas y rutas públicas, más adelante se aplicará una autenticación real contra un backend.
