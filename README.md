@@ -219,6 +219,9 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 ```
 
 
+
+# 🏁 FIN SECCIÓN 15: Protección de rutas
+
 ---
 
 # 🔒 217. Recordar la última página visitada
