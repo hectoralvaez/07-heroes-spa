@@ -221,6 +221,15 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔒 214. Logout del usuario
+En esta clase hacemos el logout limpiando el State y el Local Storage, y una avez "explulsado" el usario, navegamos a la página de "login".
+
+Es importante que en la parte del Front se hagan todas las validaciones para que envíe la información lo más limpia posible a la parte de Back. 
+
+Hay que intentar que Front envíe a Back solo peticiones válidas, aunque luego Back haga también sus validaciones.
+
+---
+
 # 🔒 213. Mantener el usuario activo
 
 #### INFO IMPORTANTE: 
@@ -228,11 +237,11 @@ El local storage no se tiene que llamar dentro del reducer (en este caso `authRe
 
 Usaremos el local storage en el `AuthProvider.jsx`, en concreto en el inicializador de la función.
 
-Usamos el inicializer para inicializar su estado y aquí sí podemos llamar el local storage.
+Usamos el inicializer para inicializar su estado y aquí sí podemos llamar el Local Storage.
 
 
 ### IMPORTANTE:
-Actualmente el logout no está haciendo la limpiando ni el state ni el localstorage, ahora solo hace la navegación. 
+Actualmente el logout no está haciendo la limpiando ni el State ni el Local Storage, ahora solo hace la navegación. 
 
 ---
 
