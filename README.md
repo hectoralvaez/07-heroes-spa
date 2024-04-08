@@ -221,6 +221,12 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔒 217. Recordar la última página visitada
+
+- En este capítulo, conseguiremos que al hacer logout, guarde tanto la url como la información que teníamos en el "search". De esta manera, al hacer login, nos devuelva a esa misma url i ncluso con la query hecha con el search.
+
+---
+
 # 🔒 216. Rutas públicas
 
 - Creamos las rutas públicas
