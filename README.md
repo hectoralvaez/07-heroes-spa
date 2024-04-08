@@ -219,10 +219,11 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 ```
 
 
+# 🆕 INICIO SECCIÓN 16: Pruebas de nuestra aplicación de Heroes
+
+<br />
 
 # 🏁 FIN SECCIÓN 15: Protección de rutas
-
----
 
 # 🔒 217. Recordar la última página visitada
 
