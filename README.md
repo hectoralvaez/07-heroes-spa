@@ -221,6 +221,46 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔒 216. Rutas públicas
+
+- Creamos las rutas públicas
+- Si estás logeado, no tendrías que poder acceder al login
+
+En AppRouter.jsx, pasamos a llamar al login `<LoginPage />` de aquí:
+
+```javascript
+<Route path="/*" element={ <LoginPage /> } />
+```
+
+A caargar las rutas pasando por el filtro de `<PublicRoute>`, de manera que sólo dejará ir a `/login` si el usuario no está logeado:
+```javascript
+<Route path="/login" element={
+    <PublicRoute>
+        <LoginPage />
+    </PublicRoute>
+} />
+```
+
+Este método nos permite controlar las rutas que tenemos en el módulo `<LoginPage />`, así como en la clase anterior lo hacíamos por módulos también pero los que tenemos en `<HeroesRoutes />`.
+
+Si en vez de hacerlo llamando a los módulos, quisieramos hacerlo por las rutas explícitas:
+```javascript
+<Route path="/login/*" element={
+    <PublicRoute>
+        <Routes>
+            <Route path="/*" element={ <LoginPage /> } />
+            <Route path="/*" element={ <LoginPage /> } />   // Las diferentes rutas
+            <Route path="/*" element={ <LoginPage /> } />   // Las diferentes rutas
+            <Route path="/*" element={ <LoginPage /> } />   // Las diferentes rutas
+        </Routes>
+    </PublicRoute>
+} />
+```
+
+
+
+---
+
 # 🔒 215. Rutas privadas
 
 - Empezamos creando las rutas privadas 
@@ -252,8 +292,6 @@ A caargar las rutas pasando por el filtro de `<PrivateRoute>`:
         <HeroesRoutes />
     </PrivateRoute>
 } />
-
-<Route path="/*" element={ <HeroesRoutes /> } />
 ```
 
 De esta manera, no podrás ver ninguna ruta de las que hay dentro de `<HeroesRoutes />`, todas te llevarán a `/login`
