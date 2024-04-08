@@ -221,6 +221,21 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔒 213. Mantener el usuario activo
+
+#### INFO IMPORTANTE: 
+El local storage no se tiene que llamar dentro del reducer (en este caso `authReducer.js`), ni siquiera un console.log dentro del reducer.
+
+Usaremos el local storage en el `AuthProvider.jsx`, en concreto en el inicializador de la función.
+
+Usamos el inicializer para inicializar su estado y aquí sí podemos llamar el local storage.
+
+
+### IMPORTANTE:
+Actualmente el logout no está haciendo la limpiando ni el state ni el localstorage, ahora solo hace la navegación. 
+
+---
+
 # 🔒 212. Login de un usuario
 
 En esta clase podremos recuperar la información almacenada en el usuario en el momento de hacer "login"
