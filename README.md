@@ -221,6 +221,45 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔒 215. Rutas privadas
+
+- Empezamos creando las rutas privadas 
+- Se trabaja como un Higher-Order Components con `<Route>` anidadas. 
+- Con este control de rutas públicas/privadas empezamos a filtrar al usuario en la parte de Front para evitar hacer trabajar de más a Back, ya que evitaremos que pasen a las rutas privadas si NO detectamos un `user`.
+- La estructura que preparemos ahora nos servirá para futuros proyectos y se podrá exportar de manera que no tengamos que estar replanteando este punto en cada proyecto.
+
+En `PrivateRoute.jsx` hacemos el control de las rutas que va a mostrar dependiendo de si está o no "logged" el usuario:
+```javascript
+export const PrivateRoute = ({ children }) => {
+    const { logged } = useContext(AuthContext);
+    return (logged)
+        ? children                  // Si está logeado, le deja entrar a todas las rutas hijas
+        : <Navigate to="/login" />  // Si no lo está, lo saca a "login"
+};
+```
+
+
+En AppRouter.jsx, pasamos de llamar a las rutas de los heroes `<HeroesRoutes />` de forma abierta a todos los usuarios como una ruta más:
+
+```javascript
+<Route path="/*" element={ <HeroesRoutes /> } />
+```
+
+A caargar las rutas pasando por el filtro de `<PrivateRoute>`:
+```javascript
+<Route path="/*" element={
+    <PrivateRoute>
+        <HeroesRoutes />
+    </PrivateRoute>
+} />
+
+<Route path="/*" element={ <HeroesRoutes /> } />
+```
+
+De esta manera, no podrás ver ninguna ruta de las que hay dentro de `<HeroesRoutes />`, todas te llevarán a `/login`
+
+---
+
 # 🔒 214. Logout del usuario
 En esta clase hacemos el logout limpiando el State y el Local Storage, y una avez "explulsado" el usario, navegamos a la página de "login".
 
