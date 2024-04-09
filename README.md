@@ -113,12 +113,12 @@ yarn add --dev @testing-library/react @types/jest jest-environment-jsdom
 
 ### 2. Opcional: Si usamos Fetch API en el proyecto:
 
-En nuestro caso estamos usando Fetch API en el hook `useFetch.js`
+Si estuvieramos usando Fetch API, como pasa en ejercicios anteriores en ejemplos en el hook `useFetch.js`
 
 ```javascript
 const resp = await fetch(url);
 ```
-Por lo tanto, se tendría que hacer la instalación via terminal con el siguiente comando: 
+Se tendría que hacer la instalación via terminal con el siguiente comando: 
 ```
 yarn add --dev whatwg-fetch
 ```
@@ -126,14 +126,14 @@ yarn add --dev whatwg-fetch
 A pesar de estar usando una versión de node superior a la 18.0.0 (actualmente la 18.7.0), es necesaria la instalación.
 
 
-### 3. Actualizar los scripts del __package.json__
+### 3. Actualizar los scripts del __package.json__ (ya existe en la raiz del proyecto)
 ```
 "scripts: {
   ...
   "test": "jest --watchAll"
 ```
 
-### 4. Crear la configuración de babel __babel.config.cjs__
+### 4. Crear la configuración de babel __babel.config.cjs__ (crear el archivo en la raiz del proyecto)
 ```
 module.exports = {
     presets: [
@@ -145,7 +145,7 @@ module.exports = {
 
 ### 5. Opcional, pero eventualmente necesario, crear Jest config y setup:
 
-__jest.config.cjs__
+__jest.config.cjs__ (crear el archivo en la raiz del proyecto)
 ```
 module.exports = {
     testEnvironment: 'jest-environment-jsdom',
@@ -153,13 +153,13 @@ module.exports = {
 }
 ```
 
-__jest.setup.js__
+__jest.setup.js__  (crear el archivo en la raiz del proyecto)
 ```
 // En caso de necesitar la implementación del FetchAPI
 import 'whatwg-fetch'; // <-- yarn add whatwg-fetch
 ```
 
-### Para iniciar los tests:
+### Para iniciar los tests en la terminal:
 ```
 yarn test
 ```
@@ -218,6 +218,11 @@ Cuando estamos trabajando un código, pero todavía no se ha terminado, para evi
 throw new Error ('action.type "ABC" todavía no se ha definido');
 ```
 
+
+---
+
+# 🔬 222. Inicio de la sección - Pruebas en HeroApp
+Creamos toda la configuración del entorni de pruebas siguiendo los pasos "Guia de instalación y configuracion de Jest + React Testing Library"
 
 ---
 
