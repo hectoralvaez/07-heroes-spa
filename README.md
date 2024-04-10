@@ -221,6 +221,20 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 223. Pruebas en el authReducer
+
+✅ Debe retornar el estado por defecto.
+> Confirmamos que llamando a `authReducer` con el estado por defecto `logged: false` y sin pasar ninguna acción; el estado que devuelve (`expect`) es igual (`toEqual`) a `logged: false`.
+
+✅ [LOGIN] Debe llamar el login, autenticar y establecer el "user".
+> Confirmamos que llamando a `authReducer` con el estado `logged: false` y pasándole la acción con el `type: types.login` y el payload con la información del usuario; el estado que devuelve (`expect`) es igual (`toEqual`) a `logged: true` y el usuario tiene la información que hemos cargado anteriormente en el payload del action (`action.payload`).
+
+
+✅ [LOGOUT] Debe borrar el nombre del usuario y pasaar el "logged" a false.
+> Confirmamos que llamando a `authReducer` con el estado `logged: true` y el payload con la información del usuario y pasándole la acción con el `type: types.logout`; el NUEVO estado que devuelve (`expect`) es igual (`toEqual`) a `logged: false`.
+
+---
+
 # 🔬 222. Inicio de la sección - Pruebas en HeroApp
 Creamos toda la configuración del entorni de pruebas siguiendo los pasos "Guia de instalación y configuracion de Jest + React Testing Library"
 
