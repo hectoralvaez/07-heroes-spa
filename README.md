@@ -221,6 +221,18 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 224. Pruebas sobre los Types
+
+Esta es una prueba muy fácil pero está bien hacerla para controlar los "Types" que estamos usando en el reducer.
+
+Aquí lo único que se hace es un "candado", de manera que nos aseguramos de que esos types siempre se van a llamar así.
+
+Si se llamara a la type por un nombre que no es, por ejemplo "logou" en lugar de "logout", nos dariá un error "undefined" difícil de localizar si no tenemos implementado este test.
+
+Lo único que hacemos es importar los types al test y confirmar que la constante 'types' devuelve exactamente las dos que tenemos.
+
+---
+
 # 🔬 223. Pruebas en el authReducer
 
 ✅ Debe retornar el estado por defecto.
