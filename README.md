@@ -221,6 +221,27 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 227. Pruebas en el PrivateRoute
+
+En este test volvemos a comprobar que accedemos a la página que nos redirige cuando hacemos login, como en el anterior ejercicio, pero además, vamos a testear no solo que el `localStorage` haya sido llamado, si no que además vamos a asegurarnos que se llama con el valor que le facilitamos.
+
+Para saber si se ha llamado al `localStorage`, sería suficiente este expect:
+```javascript
+expect( localStorage.setItem ).toHaveBeenCalled();
+```
+
+Pero si nos queremos asegurar de que se llama con los valores que le facilitamos, tendremos que confirmarlo de la siguiente manera:
+```javascript
+expect( localStorage.setItem ).toHaveBeenCalledWith("lastPath", "/search?q=batman");
+```
+
+Para eso, anteriormente, tenemos que haber añadido al `MemoryRouter` la ruta de la que partimos
+```javascript
+<MemoryRouter initialEntries={['/search?q=batman']}>
+```
+
+---
+
 # 🔬 226. Pruebas en el PublicRoute - Parte 2
 
 En este test comprobamos que accedemos a la página que nos redirige cuando hacemos login.
