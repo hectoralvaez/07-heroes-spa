@@ -221,6 +221,45 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 226. Pruebas en el PublicRoute - Parte 2
+
+En este test comprobamos que accedemos a la página que nos redirige cuando hacemos login.
+
+Para ellos necesitaremos importar varios elementos del `react-router-dom`:
+
+`const { MemoryRouter, Routes, Route } = require("react-router-dom");`
+
+Ya que necesitamos la siguiente estructura para simular el entorno:
+
+```javascript
+<AuthContext.Provider value={ contextValue}>
+    <MemoryRouter initialEntries={['/login']}>
+        <Routes>
+            <Route path='login' element={
+                <PublicRoute>
+                    <h1>Ruta Pública</h1>
+                </PublicRoute>
+            } />
+            <Route path='marvel' element={<h1>Página Marvel</h1>} />
+        </Routes>
+    </MemoryRouter>
+</AuthContext.Provider>
+```
+También debemos inicializar la variable `contextValue` con el con `logged` a true y simulado el valor de un usuario:
+
+```javascript
+const contextValue = {
+    logged: true,
+    user : {
+        name: 'Héctor',
+        id: '12345',
+    }
+}
+```
+
+
+---
+
 # 🔬 225. Pruebas en el PublicRoute
 
 Para renderizar el PublicRoute, necesitamos hacerlo dentro del "context" <AuthorContext>
