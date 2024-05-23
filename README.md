@@ -221,6 +221,18 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 225. Pruebas en el PublicRoute
+
+Para renderizar el PublicRoute, necesitamos hacerlo dentro del "context" <AuthorContext>
+
+En esta prueba comprobamos si está logeado.
+
+Si lo está, carga el navigate a "/marvel" `<Navigate to="/marvel" />`, si no, carga el children del `<PublicRoute>` que es `<LoginPage />` (que te lleva al "login").
+
+En nuestro test, el children, o sea, el elemento que tenemos dentro del `<PublicRoute>`, será un `H1` con el texto "Ruta pública".
+
+---
+
 # 🔬 224. Pruebas sobre los Types
 
 Esta es una prueba muy fácil pero está bien hacerla para controlar los "Types" que estamos usando en el reducer.
