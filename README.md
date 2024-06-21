@@ -221,6 +221,37 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 228. Pruebas en el AppRouter
+
+En este test comprobamos que funciona el componente <AppRouter>, si va a la ruta pública o privada según si está o no logado.
+
+Una vez hacemos las pruebas, si hacemos este `expect`:
+```javascript
+expect( screen.getByText('Login')).toBeTruthy();
+```
+
+Recibimos el siguiente error:
+```javascript
+TestingLibraryElementError: Found multiple elements with the text: Login
+```
+
+Donde nos informa de que estamos recibiendo multiples elementos con el texto "Login"
+
+Para pasar el test con la estructura actual de la página `LoginPage.jsx`, tenemos que confirmar que aparezca 2 veces la palabra "Login".
+```javascript
+expect( screen.getAllByText('Login').length).toBe(2);
+```
+
+En la segunda prueba (confirmar que estamos logados) comprobamos que aparece almenos una vez el texto "Marvel"
+
+```javascript
+expect( screen.getAllByText('Marvel').length).toBeGreaterThanOrEqual(1);
+```
+
+
+
+---
+
 # 🔬 227. Pruebas en el PrivateRoute
 
 En este test volvemos a comprobar que accedemos a la página que nos redirige cuando hacemos login, como en el anterior ejercicio, pero además, vamos a testear no solo que el `localStorage` haya sido llamado, si no que además vamos a asegurarnos que se llama con el valor que le facilitamos.
