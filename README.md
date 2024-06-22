@@ -221,6 +221,30 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 231. Pruebas en el SearchPage
+
+En este test comprobamos que funciona el componente <SearchPage>
+
+Volvemos a hacer un test con "Snapshot", lo que compara la maqueta que tenemos actualmente por defecto con el contenido que genera el código. De esta manera, hacemos una foto del estado actual estático de la pàgina y nos aseguramos de que siempre se va a mantener así.
+
+Para ello es necesario desestructurar del `render` el `container`:
+
+```javascript
+const { container } = render(
+    <MemoryRouter>
+        <SearchPage />
+    </MemoryRouter>
+);
+```
+
+Para luego poder hacer el  de ese `container`:
+
+```javascript
+expect( container ).toMatchSnapshot()
+```
+
+---
+
 # 🔬 230. Solución de la tarea
 
 Mucha info nueva, complicado, repasar.
