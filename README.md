@@ -221,6 +221,29 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 230. Solución de la tarea
+
+Mucha info nueva, complicado, repasar.
+
+---
+
+# 🔬 229. Pruebas en el NavBar 
+
+Para probar el NavBar, tendremos que hacer pruebas en:
+- HeroesRoutes.jsx
+- NavBar
+
+
+Para testear el `<HeroesRoutes>` habría que montarlo dentro de `<MemoryRouter>` y evaluaremos que esté dentro de cada ruta comprobando que haya contenido de cada página, como ya hemos hecho en la pàgina de "Login" o "Marvel", por lo tanto, no se repiten las pruebas.
+
+Para testear el `<NavBar>` tendremos que comporbar:
+- Aparece el nombre de la persona (enviado desde el contexto)
+- Evaluar que cuando se hace click en logout
+    1. Navigate con login y el replace
+    2. Que se llama el `logout();`
+
+---
+
 # 🔬 228. Pruebas en el AppRouter
 
 En este test comprobamos que funciona el componente <AppRouter>, si va a la ruta pública o privada según si está o no logado.
