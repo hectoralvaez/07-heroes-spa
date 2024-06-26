@@ -221,6 +221,12 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 234. Resumen de las pruebas realizadas
+
+Propuestas de test a realizar en todas las pàginas del proyecto.
+
+---
+
 # 🔬 233. Tarea - requireActual
 
 En el primer test comprobamos que en caso de no encontrar un heroe (batman123) aparece el mensaje de error, es decir, que el `alert-danger` deja de tener el `display: none`.
