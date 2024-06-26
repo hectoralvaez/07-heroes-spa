@@ -221,6 +221,58 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 233. Tarea - requireActual
+
+En el primer test comprobamos que en caso de no encontrar un heroe (batman123) aparece el mensaje de error, es decir, que el `alert-danger` deja de tener el `display: none`.
+
+Sería igual que el del ejercicio anterior, pero confirmando que `alertDanger.style.display` está vacío ('').
+
+En el segundo comprobamos que cuando usas el formulario para buscar heroes, te lleva a la página del heroe en cuestión.
+
+Para eso necesitamos crear un mock de `useNavigate`: 
+
+```javascript
+const mockedUseNavigate = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockedUseNavigate,
+}));
+```
+
+IMPORTANTE:
+
+Siempre que hagamos un mock, hay que resetear los mocks justo al inicio del `describe` de las prueba:
+```javascript
+beforeEach( () => jest.clearAllMocks() );
+```
+ 
+En el test, se simular la implementación del input con `fireEvent`:
+
+```javascript
+fireEvent.change( input, { target: { name: 'searchText', value: inputValue }} );
+```
+
+Una vez está el input implementado, disparamos el form:
+```javascript
+fireEvent.submit( form );
+```
+
+Y finalmente confirmamos que navega a la nueva url con el mock del `UseNavigate` (`mockedUseNavigate`):
+
+```javascript
+expect( mockedUseNavigate ).toHaveBeenCalledWith('?q=superman');
+```
+
+NOTA:
+
+En el ejercicio se ha pasado "superman" a variable:
+```javascript
+const inputValue = 'superman';
+```
+
+---
+
 # 🔬 232. Pruebas con los queryParameters
 
 En este test hemos forzado el `initialEntries` del `MemoryRouter` con la query ('q') igual a "batman".
