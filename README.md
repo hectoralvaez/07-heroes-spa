@@ -221,6 +221,27 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 
 ---
 
+# 🔬 232. Pruebas con los queryParameters
+
+En este test hemos forzado el `initialEntries` del `MemoryRouter` con la query ('q') igual a "batman".
+
+Una vez configurada la query hemos comprobado con `getByRole` que el `textbox` sea igual a "batman" y que la `img` contenga la url de la imagen.
+
+Hemos añadido un `aria-label` y con `getByLabelText` hemos podido comprobar que contiene el `style="none"` accediendo a la propiedad `display` del elemento de la siguiente manera:
+`alertDanger.style.display`
+
+Como teníamos funcionando un `snapshot`, al hacer cambios en el cógigo para añadir el aria-label, nos daba error:
+
+```
+› 1 snapshot failed.
+Snapshot Summary
+› 1 snapshot failed from 1 test suite. Inspect your code changes or press `u` to update them.
+```
+
+ Hay que ASEGURARSE de que el cambio es correcto y entonces actualizar el snapshot con la tecla "u".
+
+---
+
 # 🔬 231. Pruebas en el SearchPage
 
 En este test comprobamos que funciona el componente <SearchPage>
