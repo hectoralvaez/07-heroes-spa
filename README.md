@@ -219,6 +219,8 @@ throw new Error ('action.type "ABC" todavía no se ha definido');
 ```
 
 
+# 🏁 FIN SECCIÓN 16: Pruebas de nuestra aplicación de Heroes
+
 ---
 
 # 🔬 234. Resumen de las pruebas realizadas
